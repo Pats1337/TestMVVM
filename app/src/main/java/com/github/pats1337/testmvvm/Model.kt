@@ -16,9 +16,12 @@ object Model {
 
     fun start(textCallback: TextCallback) {
         callback = textCallback
-        if (timer == null) {
-            timer = Timer()
-            timer?.scheduleAtFixedRate(timerTask, 1000, 1000)
-        }
+        timer = Timer()
+        timer?.scheduleAtFixedRate(timerTask, 0, 1000)
+    }
+
+    fun stop() {
+        timer?.cancel()
+        timer = null
     }
 }
